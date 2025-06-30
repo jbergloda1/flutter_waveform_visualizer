@@ -1,0 +1,27 @@
+name: waveform_visualizer
+description: A beautiful animated waveform widget for Flutter with real-time visualization capabilities.
+version: 1.0.0
+homepage: https://github.com/YOUR_USERNAME/waveform_visualizer
+repository: https://github.com/YOUR_USERNAME/waveform_visualizer
+issue_tracker: https://github.com/YOUR_USERNAME/waveform_visualizer/issues
+documentation: https://github.com/YOUR_USERNAME/waveform_visualizer
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+# The following section is package-specific configuration.
+topics:
+  - flutter
+  - waveform
+  - animation
+  - audio-visualization 
