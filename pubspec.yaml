@@ -1,10 +1,11 @@
 name: waveform_visualizer
 description: A beautiful animated waveform widget for Flutter with real-time visualization capabilities.
 version: 1.0.0
-homepage: https://github.com/YOUR_USERNAME/waveform_visualizer
-repository: https://github.com/YOUR_USERNAME/waveform_visualizer
-issue_tracker: https://github.com/YOUR_USERNAME/waveform_visualizer/issues
-documentation: https://github.com/YOUR_USERNAME/waveform_visualizer
+# Replace YOUR_USERNAME with your actual GitHub username before publishing
+homepage: https://github.com/jbergloda1/flutter_waveform_visualizer
+repository: https://github.com/jbergloda1/flutter_waveform_visualizer
+issue_tracker: https://github.com/jbergloda1/flutter_waveform_visualizer/issues
+documentation: https://github.com/jbergloda1/flutter_waveform_visualizer
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
