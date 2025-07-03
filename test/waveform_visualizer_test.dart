@@ -5,7 +5,7 @@ void main() {
   group('WaveformVisualizer', () {
     test('should return correct package info', () {
       final info = WaveformVisualizer.getPackageInfo();
-      
+
       expect(info['name'], equals('waveform_visualizer'));
       expect(info['version'], equals('1.0.0'));
       expect(info['description'], isNotEmpty);
@@ -47,11 +47,11 @@ void main() {
       controller.updateAmplitude(1.0);
       expect(controller.currentAmplitude, lessThan(1.0)); // Should be smoothed
       expect(controller.currentAmplitude, greaterThan(0.0));
-      
+
       // Second update should get closer to target
       controller.updateAmplitude(1.0);
       final secondAmplitude = controller.currentAmplitude;
-      
+
       // Third update should get even closer
       controller.updateAmplitude(1.0);
       expect(controller.currentAmplitude, greaterThan(secondAmplitude));
@@ -71,10 +71,10 @@ void main() {
 
     test('should start and stop correctly', () {
       expect(controller.isActive, isFalse);
-      
+
       controller.start();
       expect(controller.isActive, isTrue);
-      
+
       controller.stop();
       expect(controller.isActive, isFalse);
     });
@@ -82,35 +82,36 @@ void main() {
     test('should reset data correctly', () {
       controller.updateAmplitude(0.8);
       controller.reset();
-      
+
       expect(controller.currentAmplitude, equals(0.0));
       expect(controller.isActive, isFalse);
-      expect(controller.dataPoints.every((point) => point.amplitude == 0.0), isTrue);
+      expect(controller.dataPoints.every((point) => point.amplitude == 0.0),
+          isTrue);
     });
 
     test('should maintain maximum data points', () {
       final maxPoints = controller.maxDataPoints;
-      
+
       // Add more points than the maximum
       for (int i = 0; i < maxPoints + 10; i++) {
         controller.updateAmplitude(0.5);
       }
-      
+
       expect(controller.dataPoints.length, equals(maxPoints));
     });
 
     test('should apply smoothing correctly', () {
       final controllerNoSmoothing = WaveformController(smoothingFactor: 0.0);
       final controllerWithSmoothing = WaveformController(smoothingFactor: 0.8);
-      
+
       // Update both with same large amplitude
       controllerNoSmoothing.updateAmplitude(1.0);
       controllerWithSmoothing.updateAmplitude(1.0);
-      
+
       // Controller with smoothing should have lower amplitude initially
-      expect(controllerWithSmoothing.currentAmplitude, 
-             lessThan(controllerNoSmoothing.currentAmplitude));
-      
+      expect(controllerWithSmoothing.currentAmplitude,
+          lessThan(controllerNoSmoothing.currentAmplitude));
+
       controllerNoSmoothing.dispose();
       controllerWithSmoothing.dispose();
     });
@@ -120,7 +121,7 @@ void main() {
     test('should create point with correct values', () {
       final timestamp = DateTime.now();
       final point = WaveformPoint(amplitude: 0.7, timestamp: timestamp);
-      
+
       expect(point.amplitude, equals(0.7));
       expect(point.timestamp, equals(timestamp));
     });
@@ -130,7 +131,7 @@ void main() {
       final point1 = WaveformPoint(amplitude: 0.5, timestamp: timestamp);
       final point2 = WaveformPoint(amplitude: 0.5, timestamp: timestamp);
       final point3 = WaveformPoint(amplitude: 0.6, timestamp: timestamp);
-      
+
       expect(point1, equals(point2));
       expect(point1, isNot(equals(point3)));
     });
@@ -139,7 +140,7 @@ void main() {
   group('WaveformStyle', () {
     test('should create with default values', () {
       const style = WaveformStyle();
-      
+
       expect(style.strokeWidth, equals(2.0));
       expect(style.showGradient, isTrue);
       expect(style.waveformStyle, equals(WaveformDrawStyle.bars));
@@ -154,7 +155,7 @@ void main() {
         showGradient: false,
         waveformStyle: WaveformDrawStyle.line,
       );
-      
+
       expect(newStyle.strokeWidth, equals(5.0));
       expect(newStyle.showGradient, isFalse);
       expect(newStyle.waveformStyle, equals(WaveformDrawStyle.line));
@@ -173,4 +174,4 @@ void main() {
       expect(WaveformDrawStyle.values, contains(WaveformDrawStyle.circular));
     });
   });
-} 
+}

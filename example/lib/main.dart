@@ -205,15 +205,14 @@ class _WaveformDemoPageState extends State<WaveformDemoPage> {
                               _waveformController.start();
                             }
                           },
-                          icon: Icon(_waveformController.isActive 
-                              ? Icons.stop 
+                          icon: Icon(_waveformController.isActive
+                              ? Icons.stop
                               : Icons.play_arrow),
-                          label: Text(_waveformController.isActive 
-                              ? 'Stop' 
-                              : 'Start'),
+                          label: Text(
+                              _waveformController.isActive ? 'Stop' : 'Start'),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: _waveformController.isActive 
-                                ? Colors.red 
+                            backgroundColor: _waveformController.isActive
+                                ? Colors.red
                                 : Colors.green,
                           ),
                         ),
@@ -275,7 +274,7 @@ class _WaveformDemoPageState extends State<WaveformDemoPage> {
                           height: 40,
                           decoration: BoxDecoration(
                             color: color,
-                            border: isSelected 
+                            border: isSelected
                                 ? Border.all(color: Colors.white, width: 3)
                                 : null,
                             borderRadius: BorderRadius.circular(8),
@@ -387,4 +386,4 @@ class _WaveformDemoPageState extends State<WaveformDemoPage> {
         return 'Circular';
     }
   }
-} 
+}

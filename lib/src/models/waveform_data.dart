@@ -104,13 +104,13 @@ class WaveformStyle {
 enum WaveformDrawStyle {
   /// Draw as vertical bars
   bars,
-  
+
   /// Draw as continuous line
   line,
-  
+
   /// Draw as filled wave
   filled,
-  
+
   /// Draw as circular wave
   circular,
-} 
+}

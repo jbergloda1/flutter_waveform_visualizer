@@ -148,7 +148,8 @@ class WaveformPainter extends CustomPainter {
       ..strokeWidth = style.strokeWidth
       ..strokeCap = StrokeCap.round;
 
-    final barWidth = (size.width - (style.barCount - 1) * style.barSpacing) / style.barCount;
+    final barWidth =
+        (size.width - (style.barCount - 1) * style.barSpacing) / style.barCount;
     final centerY = size.height / 2;
 
     for (int i = 0; i < style.barCount; i++) {
@@ -165,18 +166,20 @@ class WaveformPainter extends CustomPainter {
       } else {
         final lowerAmplitude = dataPoints[lowerIndex].amplitude;
         final upperAmplitude = dataPoints[upperIndex].amplitude;
-        amplitude = lowerAmplitude + (upperAmplitude - lowerAmplitude) * fraction;
+        amplitude =
+            lowerAmplitude + (upperAmplitude - lowerAmplitude) * fraction;
       }
-      
+
       // Apply pulse effect for active state with smoother scaling
       final baseScale = isActive ? 1.0 : 0.8;
       final pulseEffect = isActive ? (pulseScale - 1.0) * 0.3 + 1.0 : 1.0;
       final effectiveAmplitude = amplitude * baseScale * pulseEffect;
-      
+
       // Apply minimum height and smooth scaling
       const minHeight = 4.0;
       final maxHeight = size.height * 0.8;
-      final barHeight = (effectiveAmplitude * maxHeight).clamp(minHeight, maxHeight);
+      final barHeight =
+          (effectiveAmplitude * maxHeight).clamp(minHeight, maxHeight);
 
       final x = i * (barWidth + style.barSpacing) + barWidth / 2;
       final startY = centerY - barHeight / 2;
@@ -191,7 +194,8 @@ class WaveformPainter extends CustomPainter {
             style.waveColor.withValues(alpha: alphaFactor),
             style.waveColor.withValues(alpha: alphaFactor * 0.3),
           ],
-        ).createShader(Rect.fromLTWH(x - barWidth / 2, 0, barWidth, size.height));
+        ).createShader(
+            Rect.fromLTWH(x - barWidth / 2, 0, barWidth, size.height));
       } else {
         // Apply alpha based on amplitude for depth effect
         final alphaFactor = (0.4 + amplitude * 0.6).clamp(0.4, 1.0);
@@ -250,8 +254,7 @@ class WaveformPainter extends CustomPainter {
   }
 
   void _drawFilled(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..style = PaintingStyle.fill;
+    final paint = Paint()..style = PaintingStyle.fill;
 
     final path = Path();
     final centerY = size.height / 2;
@@ -265,7 +268,7 @@ class WaveformPainter extends CustomPainter {
       final amplitude = dataPoints[i].amplitude;
       final effectiveAmplitude = isActive ? amplitude * pulseScale : amplitude;
       final y = centerY - (effectiveAmplitude - 0.5) * size.height * 0.8;
-      
+
       if (i == 0) {
         path.lineTo(x, y);
       } else {
@@ -332,8 +335,8 @@ class WaveformPainter extends CustomPainter {
   @override
   bool shouldRepaint(WaveformPainter oldDelegate) {
     return oldDelegate.dataPoints != dataPoints ||
-           oldDelegate.isActive != isActive ||
-           oldDelegate.pulseScale != pulseScale ||
-           oldDelegate.style != style;
+        oldDelegate.isActive != isActive ||
+        oldDelegate.pulseScale != pulseScale ||
+        oldDelegate.style != style;
   }
-} 
+}
