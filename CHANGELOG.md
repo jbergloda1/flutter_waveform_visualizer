@@ -8,28 +8,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-01-15
 
 ### Added
-- Initial release of my_flutter_package
-- CustomButton widget with animation and customization options
-- StringUtils class with comprehensive string manipulation functions:
-  - capitalize: Capitalize first letter of a string
-  - capitalizeWords: Capitalize first letter of each word
-  - isValidEmail: Email validation
-  - isAlphabetic: Check if string contains only alphabetic characters
-  - removeWhitespace: Remove all whitespace from string
-  - truncate: Truncate string with ellipsis
-- MyFlutterPackage base class with package information and initialization
-- Comprehensive unit tests with 100% code coverage
-- Example application demonstrating all features
-- Complete documentation with API reference
+- Initial release of waveform_visualizer package
+- WaveformWidget with real-time amplitude visualization
+- WaveformController for managing waveform animations and data
+- Multiple waveform styles: bars, line, filled, and circular
+- Customizable appearance with WaveformStyle:
+  - Colors and gradients
+  - Animation duration and smoothing
+  - Bar count and spacing
+  - Stroke width customization
+- WaveformData model for amplitude data management
+- Comprehensive documentation and examples
 - MIT License
 
 ### Features
-- ✅ Custom animated button widget
-- ✅ String utility functions
-- ✅ Package initialization and info
-- ✅ Comprehensive testing
-- ✅ Example application
-- ✅ Full documentation
+- ✅ Real-time waveform visualization
+- ✅ Multiple drawing styles (bars, line, filled, circular)
+- ✅ Smooth animations with customizable pulse effects
+- ✅ Gradient color support
+- ✅ Responsive design for different screen sizes
+- ✅ High performance with optimized custom painter
+- ✅ Easy integration with audio input sources
+- ✅ Complete example application
+- ✅ Full API documentation
 
 ### Supported Platforms
 - ✅ Android
